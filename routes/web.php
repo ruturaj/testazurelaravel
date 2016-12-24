@@ -19,7 +19,7 @@ Route::get('/', function () {
    {
      $dbcon = "connected successfully to database ".DB::connection()->getDatabaseName();
    }
-   $dealers = App\Dealer::all();
-   return $dealers;
-    //return view('welcome');
+   //$dealers = App\Dealer::all();
+   //return $dealers;
+    return view('welcome');
 });
