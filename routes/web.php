@@ -19,7 +19,20 @@ Route::get('/', function () {
    {
      $dbcon = "connected successfully to database ".DB::connection()->getDatabaseName();
    }
-   //$dealers = App\Dealer::all();
-   //return $dealers;
-    return view('welcome');
+   $dealers = App\Dealer::all();
+   return $dealers;
+   return phpinfo();
+    //return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+Route::get('/dealers', 'HomeController@dealers');
+Route::get('/dealers/{dealerid}', 'HomeController@dealerinfo');
+Route::get('/consumers', 'HomeController@consumers');
+Route::get('/consumers/{consumerid}', 'HomeController@consumerinfo');
+Route::get('/orders', 'HomeController@orders');
+Route::get('/orders/{orderid}', 'HomeController@orderinfo');
+Route::get('/uploadfile', 'HomeController@uploadfile');
+Route::post('/uploadfile', 'HomeController@showfileupload');
