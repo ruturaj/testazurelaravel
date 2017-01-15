@@ -22,7 +22,7 @@ Route::get('/', function () {
    $dealers = App\Dealer::all();
    return $dealers;
    return phpinfo();*/
-    return view('home');
+    return view('welcome');
 });
 
 Auth::routes();
