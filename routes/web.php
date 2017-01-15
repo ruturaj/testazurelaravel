@@ -14,15 +14,15 @@ use App\Dealer;
 */
 
 Route::get('/', function () {
-	$dbcon = "Nothing";
+	/*$dbcon = "Nothing";
 	if(DB::connection()->getDatabaseName())
    {
      $dbcon = "connected successfully to database ".DB::connection()->getDatabaseName();
    }
    $dealers = App\Dealer::all();
    return $dealers;
-   return phpinfo();
-    //return view('welcome');
+   return phpinfo();*/
+    return view('home');
 });
 
 Auth::routes();
