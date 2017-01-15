@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Dealer;
 use App\Consumer;
 use App\Order;
-
+use App\Exterior;
+use App\Interior;
+use App\Shade;
 
 class HomeController extends Controller
 {
@@ -91,5 +93,20 @@ class HomeController extends Controller
       // move uploaded File
       $destinationPath = 'uploads';
       $file->move($destinationPath,$file->getClientOriginalName());
+	  
+	  $fileD = fopen($destinationPath.'/'.$file->getClientOriginalName(),"r");
+	  $column=fgetcsv($fileD);
+      while(!feof($fileD)){
+         $rowData[]=fgetcsv($fileD);
+      }
+	  $data = array();
+	  foreach ($rowData as $rd) {
+		  $data[] = array('baseID'=>$rd[0], 'base1Value'=>$rd[1], 'base2Value'=>$rd[2], 'base3Value'=>$rd[3], 'base4Value'=>$rd[4],
+					'wpl'=>$rd[5], 'antifungal'=>$rd[6], 'monsoon'=>$rd[7], 'dirt'=>$rd[8], 'efflorescene'=>$rd[9], 'hiding'=>$rd[10], 
+					'gloss'=>$rd[11], 'coverage'=>$rd[12], 'sp_ltr'=>$rd[13], 'base_Type'=>$rd[14], 'brand'=>$rd[15], 'sb_Brand'=>$rd[16],
+					'base'=>$rd[17], 'Deleted' => 0);
+	  }
+	  Exterior::insert($data);
+	  return $data;
     }
 }
