@@ -101,10 +101,16 @@ class HomeController extends Controller
       }
 	  $data = array();
 	  foreach ($rowData as $rd) {
-		  $data[] = array('baseID'=>$rd[0], 'base1Value'=>$rd[1], 'base2Value'=>$rd[2], 'base3Value'=>$rd[3], 'base4Value'=>$rd[4],
-					'wpl'=>$rd[5], 'antifungal'=>$rd[6], 'monsoon'=>$rd[7], 'dirt'=>$rd[8], 'efflorescene'=>$rd[9], 'hiding'=>$rd[10], 
-					'gloss'=>$rd[11], 'coverage'=>$rd[12], 'sp_ltr'=>$rd[13], 'base_Type'=>$rd[14], 'brand'=>$rd[15], 'sb_Brand'=>$rd[16],
-					'base'=>$rd[17], 'Deleted' => 0);
+		  
+		  if ($Request->input('tabletype') == 'Exterior') {
+				$data[] = array('baseID'=>$rd[0], 'base1Value'=>$rd[1], 'base2Value'=>$rd[2], 'base3Value'=>$rd[3], 'base4Value'=>$rd[4],
+						'wpl'=>$rd[5], 'antifungal'=>$rd[6], 'monsoon'=>$rd[7], 'dirt'=>$rd[8], 'efflorescene'=>$rd[9], 'hiding'=>$rd[10], 
+						'gloss'=>$rd[11], 'coverage'=>$rd[12], 'sp_ltr'=>$rd[13], 'base_Type'=>$rd[14], 'brand'=>$rd[15], 'sb_Brand'=>$rd[16],
+						'base'=>$rd[17], 'Deleted' => 0);
+		  } else if ($Request->input('tabletype') == 'Interior') {}
+		  else if ($Request->input('tabletype') == 'Shaded') {}
+		  else if ($Request->input('tabletype') == 'DealerMachines') {}
+		  
 	  }
 	  Exterior::insert($data);
 	  return $data;

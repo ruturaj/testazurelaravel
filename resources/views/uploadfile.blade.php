@@ -15,6 +15,7 @@
 									'Shaded' => 'Shaded', 'DealerMachines' => 'Dealer Machines'], null, ['placeholder' => 'Pick a table to upload...']);
 					 echo 'Select the file to upload.';
 					 echo Form::file('image');
+					 echo '<p>';
 					 echo Form::submit('Upload File');
 					 echo Form::close();
 				  ?>
