@@ -112,6 +112,12 @@ class HomeController extends Controller
 		  else if ($request->input('tabletype') == 'DealerMachines') {}
 		  
 	  }
+	  
+	  if ($request->input('tabletype') == 'Exterior') { Exterior::insert($data);} 
+		  else if ($request->input('tabletype') == 'Interior') { Interior::insert($data);}
+		  else if ($request->input('tabletype') == 'Shaded') {Shade::insert($data);}
+		  else if ($request->input('tabletype') == 'DealerMachines') {DealerMachine::insert($data);}
+	  
 	  Exterior::insert($data);
 	  return $data;
     }
