@@ -129,15 +129,16 @@ class HomeController extends Controller
 						'coverage'=>$rd[11], 'sp_ltr'=>$rd[12], 'base_Type'=>$rd[13], 'sp_use'=>$rd[14], 'brand'=>$rd[15], 'sub_Brand'=>$rd[16],
 						'base'=>$rd[17], 'Deleted' => 0);
 			  
+		  } else if ($request->input('tabletype') == 'Shaded') {
+				$data[] = array('shadeID'=>$rd[0], 'shadeName'=>$rd[1], 'base_Type'=>$rd[2], 'magenta'=>$rd[3], 'int_red'=>$rd[4], 'f_yell'=>$rd[5], 'f_blk'=>$rd[6], 'ht_yell'=>$rd[7], 'ht_ro'=>$rd[8], 'f_yo'=>$rd[9], 'ext_red'=>$rd[10], 'f_ro'=>$rd[11], 'f_red'=>$rd[12], 'f_grn'=>$rd[13], 'f_blue'=>$rd[14], 'f_vio'=>$rd[15], 'ht_wht'=>$rd[16], 'ht_blue'=>$rd[17], 'orange'=>$rd[18], 'misc'=>$rd[19], 'Deleted' => 0);
 		  }
-		  else if ($request->input('tabletype') == 'Shaded') {}
 		  else if ($request->input('tabletype') == 'DealerMachines') {}
 		  
 	  }
 	  
 	  if ($request->input('tabletype') == 'Exterior') { Exterior::insert($data);} 
 		  else if ($request->input('tabletype') == 'Interior') { Interior::insert($data);}
-		  else if ($request->input('tabletype') == 'Shaded') {/*Shade::insert($data);*/}
+		  else if ($request->input('tabletype') == 'Shaded') { Shade::insert($data);}
 		  else if ($request->input('tabletype') == 'DealerMachines') {/*DealerMachine::insert($data);*/}
 	  
 	  //Exterior::insert($data);
