@@ -79,7 +79,14 @@
                 </div>
             </div>
         </nav>
-
+		
+		<ul class="topnav" id="myTopnav">
+		  <li><a href="{{ url('/consumers') }}" class="navactive">Consumers</a></li>
+		  <li><a href="{{ url('/dealers') }}">Dealers</a></li>
+		  <li><a href="{{ url('/uploadfile') }}">Configuration</a></li>
+		  <li><a href="{{ url('/orders') }}">Orders</a></li>
+		</ul>
+		
         @yield('content')
     </div>
 

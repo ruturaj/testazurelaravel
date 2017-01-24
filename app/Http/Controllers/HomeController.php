@@ -19,7 +19,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -103,22 +103,44 @@ class HomeController extends Controller
 	  foreach ($rowData as $rd) {
 		  
 		  if ($request->input('tabletype') == 'Exterior') {
-				$data[] = array('baseID'=>$rd[0], 'base1Value'=>$rd[1], 'base2Value'=>$rd[2], 'base3Value'=>$rd[3], 'base4Value'=>$rd[4],
+				$reference = Exterior::where('baseID', $rd[0])->first();
+				if($reference === null ) {
+					$data[] = array('baseID'=>$rd[0], 'base1Value'=>$rd[1], 'base2Value'=>$rd[2], 'base3Value'=>$rd[3], 'base4Value'=>$rd[4],
 						'wpl'=>$rd[5], 'antifungal'=>$rd[6], 'monsoon'=>$rd[7], 'dirt'=>$rd[8], 'efflorescene'=>$rd[9], 'hiding'=>$rd[10], 
 						'gloss'=>$rd[11], 'coverage'=>$rd[12], 'sp_ltr'=>$rd[13], 'base_Type'=>$rd[14], 'brand'=>$rd[15], 'sb_Brand'=>$rd[16],
 						'base'=>$rd[17], 'Deleted' => 0);
-		  } else if ($request->input('tabletype') == 'Interior') {}
+				}
+				/*$data = ['baseID'=>$rd[0], 'base1Value'=>$rd[1], 'base2Value'=>$rd[2], 'base3Value'=>$rd[3], 'base4Value'=>$rd[4],
+						'wpl'=>$rd[5], 'antifungal'=>$rd[6], 'monsoon'=>$rd[7], 'dirt'=>$rd[8], 'efflorescene'=>$rd[9], 'hiding'=>$rd[10], 
+						'gloss'=>$rd[11], 'coverage'=>$rd[12], 'sp_ltr'=>$rd[13], 'base_Type'=>$rd[14], 'brand'=>$rd[15], 'sb_Brand'=>$rd[16],
+						'base'=>$rd[17], 'Deleted' => 0];		
+				*/	
+				//$insertion = Exterior::updateOrCreate(['baseID'=>$rd[0]], $data);
+				/*$reference = Exterior::firstOrCreate(['baseID'=>$rd[0], 'Deleted' => 0]);
+				$reference->fill(['base1Value'=>$rd[1], 'base2Value'=>$rd[2], 'base3Value'=>$rd[3], 'base4Value'=>$rd[4],
+						'wpl'=>$rd[5], 'antifungal'=>$rd[6], 'monsoon'=>$rd[7], 'dirt'=>$rd[8], 'efflorescene'=>$rd[9], 'hiding'=>$rd[10], 
+						'gloss'=>$rd[11], 'coverage'=>$rd[12], 'sp_ltr'=>$rd[13], 'base_Type'=>$rd[14], 'brand'=>$rd[15], 'sb_Brand'=>$rd[16],
+						'base'=>$rd[17], 'Deleted' => 0]);
+				$reference->save();
+				*/
+		  } else if ($request->input('tabletype') == 'Interior') {
+				$data[] = array('baseID'=>$rd[0], 'base1'=>$rd[1], 'base2'=>$rd[2], 'base3'=>$rd[3], 'base4'=>$rd[4],
+						'wpl'=>$rd[5], 'hiding'=>$rd[6], 'whiteness'=>$rd[7], 'wetscrub'=>$rd[8], 'gloss'=>$rd[9], 'stain'=>$rd[10], 
+						'coverage'=>$rd[11], 'sp_ltr'=>$rd[12], 'base_Type'=>$rd[13], 'sp_use'=>$rd[14], 'brand'=>$rd[15], 'sub_Brand'=>$rd[16],
+						'base'=>$rd[17], 'Deleted' => 0);
+			  
+		  }
 		  else if ($request->input('tabletype') == 'Shaded') {}
 		  else if ($request->input('tabletype') == 'DealerMachines') {}
 		  
 	  }
 	  
 	  if ($request->input('tabletype') == 'Exterior') { Exterior::insert($data);} 
-		  else if ($request->input('tabletype') == 'Interior') { Interior::insert($data);}
-		  else if ($request->input('tabletype') == 'Shaded') {Shade::insert($data);}
-		  else if ($request->input('tabletype') == 'DealerMachines') {DealerMachine::insert($data);}
+		  else if ($request->input('tabletype') == 'Interior') { /*Interior::insert($data);*/}
+		  else if ($request->input('tabletype') == 'Shaded') {/*Shade::insert($data);*/}
+		  else if ($request->input('tabletype') == 'DealerMachines') {/*DealerMachine::insert($data);*/}
 	  
-	  Exterior::insert($data);
+	  //Exterior::insert($data);
 	  return $data;
     }
 }
