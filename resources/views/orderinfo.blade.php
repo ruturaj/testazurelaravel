@@ -8,12 +8,12 @@
                 <div class="panel-heading">OrderInfo</div>
 
                 <div class="panel-body">
-   <!------- Invoice begins from here   
-   {{ $order}} <p> {{ $items}} <p> {{ $consumer}} <p> {{ $dealer}} <p> --->   
+   <!------- Invoice begins from here   	
+   {{ $order}} <p> {{ $items}} <p> {{ $consumer}} <p> {{ $dealer}} <p>    --->
 						<div class="row">
         <div class="col-xs-12">
     		<div class="invoice-title">
-    			<h2>Invoice</h2><h3 class="pull-right">Order # 12345</h3>
+    			<h2>Invoice</h2><h3 class="pull-right">Order # {{ $order->OrderID}}</h3>
     		</div>
     		<hr>
     		<div class="row">

@@ -53,7 +53,9 @@ class HomeController extends Controller
 	
 	public function dealerinfo($dealerid)
     {
-        return view('dealerinfo', ['countdata' => $this->headertable()]);
+		$dealer = Dealer::find($dealerid);
+		$dealerorders = Order::where('dealerID', '=', $dealerid)->get();
+        return view('dealerinfo', ['dealer' => $dealer, 'dealerorders' => $dealerorders, 'countdata' => $this->headertable()]);
     }
 	
 	public function consumers()
@@ -63,7 +65,9 @@ class HomeController extends Controller
 	
 	public function consumerinfo($consumerid)
     {
-        return view('consumerinfo', ['countdata' => $this->headertable()]);
+		$consumer = Consumer::find($consumerid);
+		$consumerorders = Order::where('consumerID', '=', $consumerid)->get();
+        return view('consumerinfo', ['consumer' => $consumer, 'consumerorders' => $consumerorders, 'countdata' => $this->headertable()]);
     }
 	
 	public function orders()

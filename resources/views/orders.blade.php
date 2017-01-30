@@ -16,18 +16,18 @@
 
 					<!-- actual results -->
 					<table class="table results table-hover table-bordered">
-					<thead>
-						<tr><th>#</th><th>Order Number</th><th>Date</th><th>Order Value</th><th>Paint Type</th><th>Order Status</th></tr>
-						<tr class="warning no-result"><td colspan="6"><i class="fa fa-warning"></i> No result</td></tr>
-					</thead>
-					<tbody>
-					@foreach ($orderlist as $order)
-						<tr class='clickable-row' data-href="{{ url('/orders/'.$order->Id)}}">
-							<th scope="row">{{ $loop->iteration }}</th><td>{{ $order->ReferencedOrderId }}</td><td> {{ $order->CreatedAt }}</td>
-							<td>{{ $order->TotalOrderValue }} </td><td>{{ $order->PaintType }}</td><td>{{ $order->Status }}</td>
-						</tr>
-					@endforeach
-					</tbody>
+						<thead>
+							<tr><th>#</th><th>Order Number</th><th>Date</th><th>Order Value</th><th>Paint Type</th><th>Order Status</th></tr>
+							<tr class="warning no-result"><td colspan="6"><i class="fa fa-warning"></i> No result</td></tr>
+						</thead>
+						<tbody>
+							@foreach ($orderlist as $order)
+								<tr class='clickable-row' data-href="{{ url('/orders/'.$order->Id)}}">
+									<th scope="row">{{ $loop->iteration }}</th><td>{{ $order->ReferencedOrderId }}</td><td> {{ $order->CreatedAt }}</td>
+									<td>{{ $order->TotalOrderValue }} </td><td>{{ $order->PaintType }}</td><td>{{ $order->Status }}</td>
+								</tr>
+							@endforeach
+						</tbody>
 					</table>
                 </div>
             </div>

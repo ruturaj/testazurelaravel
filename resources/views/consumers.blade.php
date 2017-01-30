@@ -17,18 +17,18 @@
 
 					<!-- actual results -->
 					<table class="table results table-hover table-bordered">
-					<thead>
-						<tr><th>#</th><th>Consumer name</th><th>Email</th><th>Phone number</th><th>Address</th></tr>
-						<tr class="warning no-result"><td colspan="5"><i class="fa fa-warning"></i> No result</td></tr>
-					</thead>
-					<tbody>
-					@foreach ($consumerlist as $consumer)
-						<tr class='clickable-row' data-href="{{ url('/consumers/'.$consumer->Id)}}">
-							<th scope="row">{{ $loop->iteration }}</th><td>{{ $consumer->ConsumerName }}</td><td> {{ $consumer->Email }}</td>
-							<td>{{ $consumer->PhoneNumber }} </td><td>{{ $consumer->Address }}</td>
-						</tr>
-					@endforeach
-					</tbody>
+						<thead>
+							<tr><th>#</th><th>Consumer name</th><th>Email</th><th>Phone number</th><th>Address</th></tr>
+							<tr class="warning no-result"><td colspan="5"><i class="fa fa-warning"></i> No result</td></tr>
+						</thead>
+						<tbody>
+							@foreach ($consumerlist as $consumer)
+								<tr class='clickable-row' data-href="{{ url('/consumers/'.$consumer->Id)}}">
+									<th scope="row">{{ $loop->iteration }}</th><td>{{ $consumer->ConsumerName }}</td><td> {{ $consumer->Email }}</td>
+									<td>{{ $consumer->PhoneNumber }} </td><td>{{ $consumer->Address }}</td>
+								</tr>
+							@endforeach
+						</tbody>
 					</table>
                 </div>
             </div>
