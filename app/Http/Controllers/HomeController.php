@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use App\Dealer;
 use App\Consumer;
 use App\Order;
+use App\OrderItem;
 use App\Exterior;
 use App\Interior;
 use App\Shade;
+use DB;
 
 class HomeController extends Controller
 {
@@ -27,6 +29,18 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+	 
+	public function headertable()
+	{
+		$consumer = DB::table('consumers')->count();
+		$dealers = DB::table('dealers')->count();
+		$orders = DB::table('orders')->count();
+		$completed = DB::table('orders')->where('status', '=', 'Closed')->count();
+		$open = DB::table('orders')->where('status', '=', 'Open')->count();
+		//$machines = DB::table('consumers')->count();
+		return ['consumercount' => $consumer, 'dealercount' => $dealers,'ordercount' => $orders,'completed' => $completed,'open' => $open];
+		
+	}	
     public function index()
     {
         return view('home');
@@ -34,32 +48,36 @@ class HomeController extends Controller
 	
 	public function dealers()
     {
-        return view('dealers', ['dealerlist' => Dealer::all()]);
+        return view('dealers', ['dealerlist' => Dealer::all(), 'countdata' => $this->headertable()]);
     }
 	
 	public function dealerinfo($dealerid)
     {
-        return view('dealerinfo');
+        return view('dealerinfo', ['countdata' => $this->headertable()]);
     }
 	
 	public function consumers()
     {
-        return view('consumers', ['consumerlist' => Consumer::all()]);
+        return view('consumers', ['consumerlist' => Consumer::all(), 'countdata' => $this->headertable()]);
     }
 	
 	public function consumerinfo($consumerid)
     {
-        return view('consumerinfo');
+        return view('consumerinfo', ['countdata' => $this->headertable()]);
     }
 	
 	public function orders()
     {
-        return view('orders', ['orderlist' => Order::all()]);
+        return view('orders', ['orderlist' => Order::all(), 'countdata' => $this->headertable()]);
     }
 	
 	public function orderinfo($orderid)
     {
-        return view('orderinfo');
+		$order = Order::find($orderid);
+		$orderitems = OrderItem::where('orderId', '=', $orderid)->get();
+		$consumer = Consumer::find($order->consumerID);
+		$dealer = Dealer::find($order->dealerID);
+        return view('orderinfo', ['order' => $order, 'items' => $orderitems, 'consumer'=>$consumer, 'dealer' => $dealer, 'countdata' => $this->headertable()]);
     }
 	
 	public function uploadfile()

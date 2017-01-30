@@ -11,8 +11,9 @@
     <title>My Paint</title>
 
     <!-- Styles -->
-    <link href="http://localhost:8080/testpidmobsql/public/css/app.css" rel="stylesheet">
+    
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="http://localhost:8080/testpidmobsql/public/css/app.css" rel="stylesheet">
 	
     <!-- Scripts -->
     <script>
@@ -51,6 +52,10 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
+						<li><a href="{{ url('/consumers') }}" class="navactive">Consumers</a></li>
+						<li><a href="{{ url('/dealers') }}">Dealers</a></li>
+						<li><a href="{{ url('/uploadfile') }}">Configuration</a></li>
+						<li><a href="{{ url('/orders') }}">Orders</a></li>
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Login</a></li>
                             <li><a href="{{ url('/register') }}">Register</a></li>
@@ -80,13 +85,63 @@
             </div>
         </nav>
 		
+		<section class="content-header">
+   <div class="row" style="">
+     
+    <div class="col-md-9 col-md-offset-1" style="background: #fff;height: 64px;    padding-right: 0; padding-left: 0;">
+       
+ 			<div class="" style="text-align: center;">
+ 				<div class="col-md-2" style="padding-left: 0;
+    padding-right: 0;">
+ 					<a type="submit" href="http://52.169.17.155/smartTrack/admin/" class="btn" style="height:64px;">
+ 					<p style="font-family:open sans;color: #000;font-weight: bold;font-size: 11px;margin-bottom: 0;">Total Customer</p>
+					 <p style="font-family:open sans;color: #00baff;;font-size:24px;float: left;">{{ $countdata['consumercount'] }}</p>
+					 </a>
+ 				</div>
+ 				<div class="col-md-2" style="">
+ 					<a type="submit" href="http://52.169.17.155/smartTrack/admin/" class="btn" style="height:64px;">  
+					<p style="font-family:open sans;color: #000;font-weight: bold;font-size: 11px;margin-bottom: 0;">Total Dealers</p>
+					<p style="font-family:open sans;color: #00baff;;font-size:24px;float: left;">{{ $countdata['dealercount'] }}</p>
+					</a>
+ 				</div>
+ 				<div class="col-md-2" style="">
+ 					<a type="submit" href="http://52.169.17.155/smartTrack/admin/" class="btn" style="height:64px;"> 
+					<p style="font-family:open sans;color: #000;font-weight: bold;font-size: 11px;margin-bottom: 0;">Total Orders</p>
+					<p style="font-family:open sans;color: #00baff;;font-size:24px;float: left;">{{ $countdata['ordercount'] }}</p> </a>
+ 				</div>
+ 				<div class="col-md-2" style="">
+ 					<a type="submit" href="http://52.169.17.155/smartTrack/admin/" class="btn" style="height:64px;">
+					<p style="font-family:open sans;color: #000;font-weight: bold;font-size: 11px;margin-bottom: 0;">Total Machines</p>
+					<p style="font-family:open sans;color: #00baff;;font-size:24px;float: left;">{{ $countdata['open'] }}</p> </a>
+ 				</div>
+ 				<div class="col-md-2" style="">
+				 
+ 					<a type="submit" href="http://52.169.17.155/smartTrack/admin/" class="btn" style="height:64px;">
+					<p style="font-family:open sans;color: #000;font-weight: bold;font-size: 11px;margin-bottom: 0;">Total Orders Completed</p>
+					<p style="font-family:open sans;color: #00baff;;font-size:24px;float: left;">{{ $countdata['completed'] }}</p>
+ 					</a>
+ 				</div>
+ 				<div class="col-md-2">
+ 					<a type="submit" href="http://52.169.17.155/smartTrack/admin/" class="btn" style="height:64px;"> 
+					<p style="font-family:open sans;color: #000;font-weight: bold;font-size: 11px;margin-bottom: 0;">Total Orders Open</p>
+					<p style="font-family:open sans;color: #00baff;;font-size:24px;float: left;">{{ $countdata['open'] }}</p>
+					</a>
+ 				</div>
+ 			</div>
+ 
+   </div>
+ </div>
+
+</section>
+		
+		<!--
 		<ul class="topnav" id="myTopnav">
 		  <li><a href="{{ url('/consumers') }}" class="navactive">Consumers</a></li>
 		  <li><a href="{{ url('/dealers') }}">Dealers</a></li>
 		  <li><a href="{{ url('/uploadfile') }}">Configuration</a></li>
 		  <li><a href="{{ url('/orders') }}">Orders</a></li>
-		</ul>
-		
+		</ul>		
+		-->
         @yield('content')
     </div>
 
