@@ -6,15 +6,19 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">Dealer Details
-					<!-- search box for filtering -->
-					<div class="form-group pull-right">
-						<input type="text" class="search form-control" placeholder="What you looking for?">
-					</div>
-					<span class="counter pull-right"></span>
+					
 				</div>
 
                 <div class="panel-body">
-                    					
+                    
+					<!-- search box for filtering -->
+					<div class="form-group pull-right">
+						<input type="text" class="search form-control" placeholder="Search">
+					</div>
+					<span class="counter pull-right"></span>
+					
+					</br>
+					
 					<p><b><u> Dealer : </u></b></p>
 					<!-- <p> {{ $dealer}} </p> -->
 					Dealer ID : {{ $dealer->DealerID}} </br>

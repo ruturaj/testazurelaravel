@@ -95,36 +95,56 @@
     padding-right: 0;">
  					<a type="submit" href="http://52.169.17.155/smartTrack/admin/" class="btn" style="height:64px;">
  					<p style="font-family:open sans;color: #000;font-weight: bold;font-size: 11px;margin-bottom: 0;">Total Customer</p>
-					 <p style="font-family:open sans;color: #00baff;;font-size:24px;float: left;">{{ $countdata['consumercount'] }}</p>
+					 <p style="font-family:open sans;color: #00baff;;font-size:24px;float: left;">
+					 @if(isset($countdata)) 
+					 {{ $countdata['consumercount'] }}</p>
+					 @endif
 					 </a>
  				</div>
  				<div class="col-md-2" style="">
  					<a type="submit" href="http://52.169.17.155/smartTrack/admin/" class="btn" style="height:64px;">  
 					<p style="font-family:open sans;color: #000;font-weight: bold;font-size: 11px;margin-bottom: 0;">Total Dealers</p>
-					<p style="font-family:open sans;color: #00baff;;font-size:24px;float: left;">{{ $countdata['dealercount'] }}</p>
+					<p style="font-family:open sans;color: #00baff;;font-size:24px;float: left;">
+					@if(isset($countdata)) 
+					{{ $countdata['dealercount'] }}</p>
+					@endif
 					</a>
  				</div>
  				<div class="col-md-2" style="">
  					<a type="submit" href="http://52.169.17.155/smartTrack/admin/" class="btn" style="height:64px;"> 
 					<p style="font-family:open sans;color: #000;font-weight: bold;font-size: 11px;margin-bottom: 0;">Total Orders</p>
-					<p style="font-family:open sans;color: #00baff;;font-size:24px;float: left;">{{ $countdata['ordercount'] }}</p> </a>
+					<p style="font-family:open sans;color: #00baff;;font-size:24px;float: left;">
+					@if(isset($countdata)) 
+					{{ $countdata['ordercount'] }}</p>
+					@endif
+					</a>
  				</div>
  				<div class="col-md-2" style="">
  					<a type="submit" href="http://52.169.17.155/smartTrack/admin/" class="btn" style="height:64px;">
 					<p style="font-family:open sans;color: #000;font-weight: bold;font-size: 11px;margin-bottom: 0;">Total Machines</p>
-					<p style="font-family:open sans;color: #00baff;;font-size:24px;float: left;">{{ $countdata['open'] }}</p> </a>
+					<p style="font-family:open sans;color: #00baff;;font-size:24px;float: left;">
+					@if(isset($countdata)) 
+					{{ $countdata['open'] }}</p> 
+					@endif
+					</a>
  				</div>
  				<div class="col-md-2" style="">
 				 
  					<a type="submit" href="http://52.169.17.155/smartTrack/admin/" class="btn" style="height:64px;">
 					<p style="font-family:open sans;color: #000;font-weight: bold;font-size: 11px;margin-bottom: 0;">Total Orders Completed</p>
-					<p style="font-family:open sans;color: #00baff;;font-size:24px;float: left;">{{ $countdata['completed'] }}</p>
+					<p style="font-family:open sans;color: #00baff;;font-size:24px;float: left;">
+					@if(isset($countdata)) 
+					{{ $countdata['completed'] }}</p>
+					@endif
  					</a>
  				</div>
  				<div class="col-md-2">
  					<a type="submit" href="http://52.169.17.155/smartTrack/admin/" class="btn" style="height:64px;"> 
 					<p style="font-family:open sans;color: #000;font-weight: bold;font-size: 11px;margin-bottom: 0;">Total Orders Open</p>
-					<p style="font-family:open sans;color: #00baff;;font-size:24px;float: left;">{{ $countdata['open'] }}</p>
+					<p style="font-family:open sans;color: #00baff;;font-size:24px;float: left;">
+					@if(isset($countdata)) 
+					{{ $countdata['open'] }}</p>
+					@endif
 					</a>
  				</div>
  			</div>

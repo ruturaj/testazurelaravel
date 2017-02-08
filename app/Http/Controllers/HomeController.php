@@ -79,14 +79,18 @@ class HomeController extends Controller
     {
 		$order = Order::find($orderid);
 		$orderitems = OrderItem::where('orderId', '=', $orderid)->get();
-		$consumer = Consumer::find($order->consumerID);
-		$dealer = Dealer::find($order->dealerID);
-        return view('orderinfo', ['order' => $order, 'items' => $orderitems, 'consumer'=>$consumer, 'dealer' => $dealer, 'countdata' => $this->headertable()]);
+		$consumer = Consumer::where('id', '=', $order->ConsumerID)->get();
+		/*if(count($consumer) == 1)
+		{
+			$consumer = $consumer[0];
+		}*/
+		$dealer = Dealer::where('id', "=", $order->DealerID)->get();
+        return view('orderinfo', ['order' => $order, 'items' => $orderitems, 'consumer' => $consumer, 'dealer' => $dealer, 'countdata' => $this->headertable()]);
     }
 	
 	public function uploadfile()
 	{
-		return view('uploadfile');
+		return view('uploadfile', ['countdata' => $this->headertable()]);
 	}
 	
 	// create new function for show uploaded page

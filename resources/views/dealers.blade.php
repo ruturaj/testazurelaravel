@@ -10,7 +10,7 @@
                 <div class="panel-body">
 					<!-- search box for filtering -->
 					<div class="form-group pull-right">
-						<input type="text" class="search form-control" placeholder="What you looking for?">
+						<input type="text" class="search form-control" placeholder="Search">
 					</div>
 					<span class="counter pull-right"></span>
 
