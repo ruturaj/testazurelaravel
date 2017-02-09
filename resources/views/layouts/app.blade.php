@@ -89,65 +89,54 @@
    <div class="row" style="">
      
     <div class="col-md-9 col-md-offset-1" style="background: #fff;height: 64px;    padding-right: 0; padding-left: 0;">
-       
+       @if(isset($countdata)) 
  			<div class="" style="text-align: center;">
  				<div class="col-md-2" style="padding-left: 0;
     padding-right: 0;">
- 					<a type="submit" href="http://52.169.17.155/smartTrack/admin/" class="btn" style="height:64px;">
- 					<p style="font-family:open sans;color: #000;font-weight: bold;font-size: 11px;margin-bottom: 0;">Total Customer</p>
+ 					<a type="submit" href="{{ url('/consumers') }}" class="btn" style="height:64px;">
+ 					<p style="font-family:open sans;color: #000;font-weight: bold;font-size: 11px;margin-bottom: 0;">Total Customers</p>
 					 <p style="font-family:open sans;color: #00baff;;font-size:24px;float: left;">
-					 @if(isset($countdata)) 
-					 {{ $countdata['consumercount'] }}</p>
-					 @endif
+					 
 					 </a>
  				</div>
  				<div class="col-md-2" style="">
- 					<a type="submit" href="http://52.169.17.155/smartTrack/admin/" class="btn" style="height:64px;">  
+ 					<a type="submit" href="{{ url('/dealers') }}" class="btn" style="height:64px;">  
 					<p style="font-family:open sans;color: #000;font-weight: bold;font-size: 11px;margin-bottom: 0;">Total Dealers</p>
 					<p style="font-family:open sans;color: #00baff;;font-size:24px;float: left;">
-					@if(isset($countdata)) 
-					{{ $countdata['dealercount'] }}</p>
-					@endif
+					
 					</a>
  				</div>
  				<div class="col-md-2" style="">
- 					<a type="submit" href="http://52.169.17.155/smartTrack/admin/" class="btn" style="height:64px;"> 
+ 					<a type="submit" href="{{ url('/orders') }}" class="btn" style="height:64px;"> 
 					<p style="font-family:open sans;color: #000;font-weight: bold;font-size: 11px;margin-bottom: 0;">Total Orders</p>
 					<p style="font-family:open sans;color: #00baff;;font-size:24px;float: left;">
-					@if(isset($countdata)) 
-					{{ $countdata['ordercount'] }}</p>
-					@endif
+					
 					</a>
  				</div>
  				<div class="col-md-2" style="">
- 					<a type="submit" href="http://52.169.17.155/smartTrack/admin/" class="btn" style="height:64px;">
+ 					<a type="submit" class="btn" style="height:64px;">
 					<p style="font-family:open sans;color: #000;font-weight: bold;font-size: 11px;margin-bottom: 0;">Total Machines</p>
 					<p style="font-family:open sans;color: #00baff;;font-size:24px;float: left;">
-					@if(isset($countdata)) 
-					{{ $countdata['open'] }}</p> 
-					@endif
+					
 					</a>
  				</div>
  				<div class="col-md-2" style="">
 				 
- 					<a type="submit" href="http://52.169.17.155/smartTrack/admin/" class="btn" style="height:64px;">
+ 					<a type="submit" class="btn" style="height:64px;">
 					<p style="font-family:open sans;color: #000;font-weight: bold;font-size: 11px;margin-bottom: 0;">Total Orders Completed</p>
 					<p style="font-family:open sans;color: #00baff;;font-size:24px;float: left;">
-					@if(isset($countdata)) 
-					{{ $countdata['completed'] }}</p>
-					@endif
+					
  					</a>
  				</div>
  				<div class="col-md-2">
- 					<a type="submit" href="http://52.169.17.155/smartTrack/admin/" class="btn" style="height:64px;"> 
+ 					<a type="submit" class="btn" style="height:64px;"> 
 					<p style="font-family:open sans;color: #000;font-weight: bold;font-size: 11px;margin-bottom: 0;">Total Orders Open</p>
 					<p style="font-family:open sans;color: #00baff;;font-size:24px;float: left;">
-					@if(isset($countdata)) 
-					{{ $countdata['open'] }}</p>
-					@endif
+					
 					</a>
  				</div>
  			</div>
+			@endif
  
    </div>
  </div>
